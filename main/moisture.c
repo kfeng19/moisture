@@ -22,28 +22,24 @@ double y = 0;
 
 // tip measure: surface level betwee "Moi" and "sture"; water ~ 2000
 
-// #define SHALLOW_MEASURE
-// #define DEEP_MEASURE
-#define TIP_MEASURE
-
-#ifdef DEEP_MEASURE
+#ifdef CONFIG_DEEP_MEASUREMENT
 
 const double k = -0.06553;
 const double b = 188.1;
 
-#elif defined(SHALLOW_MEASURE)
+#elif defined(CONFIG_SHALLOW_MEASUREMENT)
 
 const double k = -0.07407;
 const double b = 212.6;
 
-#elif defined(TIP_MEASURE)
+#elif defined(CONFIG_TIP_MEASUREMENT)
 
 const double k = -0.1149;
 const double b = 329.9;
 
 #else
 
-#error Please specify DEEP_MEASURE or SHALLOW_MEASURE mode for the sensor depth
+#error Please specify measurement depth mode through menuconfig
 
 #endif
 

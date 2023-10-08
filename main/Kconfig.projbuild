@@ -1,0 +1,19 @@
+menu "Moisture Measurement Configuration"
+
+    orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
+
+    choice MEASUREMENT_DEPTH
+        prompt "Sensor depth in soil"
+        default SHALLOW_MEASUREMENT
+        help
+            Select the depth mode of sensor in soil
+
+        config TIP_MEASUREMENT
+            bool "TIP"
+        config SHALLOW_MEASUREMENT
+            bool "SHALLOW"
+        config DEEP_MEASUREMENT
+            bool "DEEP"
+    endchoice
+
+endmenu
