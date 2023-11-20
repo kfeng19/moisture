@@ -10,7 +10,7 @@
 #include "esp_adc/adc_cali_scheme.h"
 
 static int adc_raw;
-const char* TAG="lol";
+const char* TAG="MoistureMain";
 double alpha;
 double y = 0;
 
