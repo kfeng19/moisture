@@ -18,8 +18,14 @@ void app_main(void)
     adc_oneshot_unit_handle_t adc_handle = config_adc(ADC_CHANNEL_4);
     while (1)
     {
+        #ifdef CONFIG_DEPLOYMENT_MODE
         y = measure_moisture(&adc_handle, ADC_CHANNEL_4);
         ESP_LOGI(TAG, "Measured: %.2f", y);
+        #elif defined CONFIG_CALIBRATION_MODE
+        calibrate_measure(&adc_handle, ADC_CHANNEL_4);
+        #else
+        #error Please specify operation mode through menuconfig
+        #endif
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }

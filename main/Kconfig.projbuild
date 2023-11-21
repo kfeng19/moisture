@@ -16,4 +16,17 @@ menu "Moisture Measurement Configuration"
             bool "DEEP"
     endchoice
 
+    choice MODE
+        prompt "Operation mode"
+        default DEPLOYMENT_MODE
+        help
+            Select the operation mode of the program
+
+        config CALIBRATION_MODE
+            bool "CALIB"
+        config DEPLOYMENT_MODE
+            bool "DEPLOY"
+    endchoice
+
+
 endmenu
